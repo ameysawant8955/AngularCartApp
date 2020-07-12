@@ -1,0 +1,44 @@
+<div>
+  <h6>Products</h6>
+  <p *ngIf="!products"><em>Loading...</em></p>
+  <div *ngIf="products" class="container">
+    <div class="row">
+      <div class="col-sm-4 mb-2"
+           *ngFor="let product of products">
+        <div class="item">
+          <div class="mb-r">
+            <div class="card card-cascade wider">
+              <a [routerLink]="['/productdetail', product.productId]">
+                <div class="view overlay hm-white-slight text-center">
+                  <img [src]="product.productImageUrl"
+                       height="150"
+                       alt="" />
+                  <a>
+                    <div class="mask waves-effect waves-light"></div>
+                  </a>
+                </div>
+              </a>
+              <div class="card-body text-center no-padding">
+                <a class="text-muted">
+                  <h5>{{ product.productName }}</h5>
+                </a>
+                <p class="card-text">{{ product.categoryName }}</p>
+                <div class="card-footer">
+                  <span class="left">₹ {{ product.productCost }}</span>
+                  <div *ngFor="let discount of product.discounts">
+                    <div *ngIf="discount.discount>0">
+                      <span class="left" style="font-size:13px;color:green;">{{ discount.discount }}% Off - {{ discount.discountName }}</span>
+                    </div>
+                  </div>
+                  <div>
+                    <button (click)="add(product)" class="btn btn-primary">Add To Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
