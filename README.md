@@ -10,10 +10,6 @@ This is a .net core application so need to make sure we have all the nuget packa
 .Net Core Framework
 npm packages to be installed.
 
-```
-
-```
-
 ### Installing
 
 To install required packges go to the angular client side app 'ClientApp' folder and run command 'npm install'
@@ -26,5 +22,11 @@ Create Database
 
 ```
 Run all the scripts in the Microsoft SQL server. Scripts can be found in file 'CartDb.sql'
+```
+
+Change the Connection String in CartDbContext.cs file
+
+```
+.UseSqlServer("Server=MySqlServerName;Database=CartDb;Trusted_Connection=True;");
 ```
 Run the project in visual studio normally
